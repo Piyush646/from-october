@@ -1,10 +1,10 @@
 #include<iostream>
 using namespace std;
 
-int findCeilingNo(int arr[],int target,int n)
+int findFloorNo(int arr[],int target,int n)
 {
-    if(target>arr[n-1])
-    return -1;
+    if(target<arr[0])
+        return -1;
     int start=0;
     int e=n-1;
     while(start<=e)
@@ -17,14 +17,14 @@ int findCeilingNo(int arr[],int target,int n)
             else
             e=m-1;
     }
-    return arr[start];
+    return arr[e];
 }
 
 int main()
 {
     int arr[]={2,3,6,8,34,67};
-    int target=499;
+    int target=1;
     int n=sizeof(arr)/sizeof(arr[0]);
-    int ans=findCeilingNo(arr,target,n);
-    cout<<"The Ceiling is= "<<ans;
+    int ans=findFloorNo(arr,target,n);
+    cout<<"The Floor is= "<<ans;
 }
